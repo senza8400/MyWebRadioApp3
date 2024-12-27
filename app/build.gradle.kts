@@ -62,14 +62,26 @@ dependencies {
     implementation(libs.material)
 
     // ExoPlayer (pour la lecture des flux audio)
-    implementation(libs.exoplayer)
+    //implementation(libs.exoplayer)
     implementation(libs.androidx.ui.graphics.android)
     implementation(libs.androidx.foundation.android)
     implementation(libs.androidx.material3.android)
-    testImplementation("junit:junit:4.13.2")
+    implementation(libs.androidx.media3.common.ktx)
+    testImplementation(libs.junit)
 
     // Pour les tests instrumentés (Android)
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test:runner:1.5.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation(libs.androidx.junit.v115)
+    androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.androidx.espresso.core.v351)
+
+    implementation(libs.androidx.media3.bom) // Vérifie la dernière version disponible
+
+    // Dépendances Media3
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui) // Si tu utilises des composants UI de Media3
+    implementation(libs.androidx.media3.session) // Si tu gères les sessions médias
+
+    // Optionnel : autres modules Media3 selon tes besoins
+    implementation(libs.androidx.media3.datasource)
+    implementation(libs.androidx.media3.transformer)
 }
